@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Its been a long time coming. Im coming back for you my friend.
+    To where we hide as children. Im coming back for you my Friend. Though my memories have faded, They come back to haunt me once again.">
+    <title>Mortage Calculator</title>
+    <link rel="shortcut icon" href="./mortgage.png" type="image/png" />
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./style_2.css" />
+    <script src="./script.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+        #amount_warning,#term_warning, #apr_warning{
+            color: red;
+        }
+    </style>
+  </head>
+  <body translate="no">
+    <div class="loader-wrapper">
+      <h1 class="title">Loading</h1>
+      <div class="rainbow-marker-loader"></div>
+      <div class="typewriter">
+        <h1>SergJCerro Mortage Calculator</h1>
+      </div>
+    </div>
+    <script>
+      $(window).on("load", function () {
+        $(".loader-wrapper").fadeOut(10000);
+      });
+    </script>
+    <hr />
+    <div id="lazy" style="visibility: hidden">
+    <hr>
+      <label for="apr"><b>APR</b></label>
+      <input
+        type="text"
+        placeholder="0.0%"
+        name="apr"
+        id="apr"
+        onchange="validateApr()"
+        onblur="validateApr()"
+      />
+      <p id="apr_warning" class="warning"></p>
+
+      <label for="term"><b>Loan Term (in years)</b></label>
+      <input
+        type="text"
+        placeholder="Enter years"
+        name="term"
+        id="term"
+        onchange="validateTerm()"
+        onblur="validateTerm()"
+      />
+      <p id="term_warning" class="warning"></p>
+
+      <label for="amount"><b>Loan Amount—(in dollars)</b></label>
+      <input
+        type="text"
+        placeholder="Enter Amount $0.00"
+        name="amount"
+        id="amount"
+        onchange="validateAmount()"
+        onblur="validateAmount()"
+      />
+      <p id="amount_warning" class="warning"></p>
+
+      <label for="amount"><b>Payment</b></label>
+      <input type="text" disabled name="payment" id="payment" />
+      <!-- <span id="payment" name="payment" disabled></span> -->
+      <br>
+      <hr>
+      <button
+        type="button"
+        class="registerbtn"
+        onclick="calculateMortage()"
+        id="calculate"
+      >
+        calculator
+      </button>
+
+      <button type="button" class="registerbtn" onclick="clearing()" id="clear">
+        clear
+      </button>
+      <footer>
+        <h2 id="creator">
+            SergJCerro
+        </h2>
+    </footer>
+    </div>
+    <script>
+      function showIt() {
+        document.getElementById("lazy").style.visibility = "visible";
+      }
+      setTimeout("showIt()", 10000);
+    </script>
+ 
+  </body>
+</html>
